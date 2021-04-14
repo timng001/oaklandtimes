@@ -8,11 +8,13 @@ import {
   StockOutlined,
 } from '@ant-design/icons';
 import { fetchSources } from '../api';
+import { VscAccount } from 'react-icons/vsc';
 
 const NewsSection = React.lazy(() => import('./NewsSection'));
 const News = React.lazy(() => import('./News'));
 
 const { Header, Sider, Content } = Layout;
+
 
 class MainLayout extends React.Component {
   state = {
@@ -46,7 +48,7 @@ class MainLayout extends React.Component {
       <Layout>
         <Sider trigger={null} collapsible collapsed={!this.state.collapsed}>
           <div className="logo"><h2>{!this.state.collapsed ? 'OU' : 'Oakland Times'}</h2></div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['-1']}>
+          <Menu theme="light" mode="inline" defaultSelectedKeys={['-1']}>
             <Menu.Item onClick={() => this.setState({ homePage: true })} key="-1" icon={<StockOutlined />}>
               Top News
             </Menu.Item>
@@ -63,6 +65,13 @@ class MainLayout extends React.Component {
               className: 'trigger',
               onClick: this.toggle,
             })}
+
+            <input type="text" placeholder="Search.." >
+
+            </input>
+
+            <button > <VscAccount size="2em"/> </button>
+            
           </Header>
           <Content
             className="site-layout-background"
